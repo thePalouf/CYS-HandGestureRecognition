@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>CYS Pattern Recognition</title>
+  <script type="text/javascript" src="cys-pattern-reco.js"></script>
+  <script type="text/javascript" src="video_img.js"></script>
+</head>
+<body onLoad="pageDidLoad()">
+  <h1>First prototype</h1>
+<!--
+  <p>This page uses <a
+  href="https://developers.google.com/native-client/dev/">
+  Google Native Client</a> to perform hands/gestures recognition
+  that helps students with english language.</p>
+  <p>/*add little text here explaining MVT*/</p
+
+  <p>Requires Chrome web browser version 31? or above (not Android app)</p>
+-->
+<!-- Buttons for our NaCl product -->
+<div id="buttons">
+  <select id="camera" hidden></select> 
+  <button id="bt_background" hidden>Background</button>
+  <button id="bt_execute" hidden>Execute</button>
+  <button id="bt_stop" hidden>Stop</button>
+  <button id="bt_showskin" hidden>Show Skin</button>
+  <button id="bt_showcontour" hidden>Show Contour</button>
+</div>
+<!-- States of hands -->
+<div id="states">
+Right hand <code id="rightHand">0</code><br/>
+Left hand <code id="leftHand">0</code>
+</div>
+
+  <div id="listener">
+    <!-- Embed the NaCl -->
+    <embed id="cys-pattern-reco" width=0 height=0 src="cys-pattern.nmf"
+           type="application/x-pnacl"/>
+  </div>
+
+<!-- Canvas showing all debug infos -->
+  <div>
+    <video id="live" width="512" height="350" hidden autoplay></video>
+    <canvas id="display" width="512" height="350"></canvas>
+    <canvas id="processed" width="512" height="350"></canvas>
+  </div>
+  
+  <h2>Status <code id="statusField">NO-STATUS</code></h2>
+
+
+</body>
+</html>
